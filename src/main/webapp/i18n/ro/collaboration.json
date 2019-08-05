@@ -1,0 +1,28 @@
+{
+  "jobMatApp": {
+    "collaboration": {
+      "home": {
+        "title": "Collaborations",
+        "createLabel": "Creeare o nouă entitate Collaboration",
+        "createOrEditLabel": "Creeare sau editare Collaboration",
+        "notFound": "No Collaborations found"
+      },
+      "created": "A fost creată o nouă entitate Collaboration cu identificatorul {{ param }}",
+      "updated": "Collaboration cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Collaboration cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Collaboration {{ id }}?"
+      },
+      "detail": {
+        "title": "Collaboration"
+      },
+      "status": "Status",
+      "initiator": "Initiator",
+      "invitationsNo": "Invitations No",
+      "message": "Message",
+      "contract": "Contract",
+      "supplier": "Supplier",
+      "customer": "Customer"
+    }
+  }
+}

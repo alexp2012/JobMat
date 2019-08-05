@@ -1,0 +1,23 @@
+{
+  "jobMatApp": {
+    "city": {
+      "home": {
+        "title": "Cities",
+        "createLabel": "Creeare o nouă entitate City",
+        "createOrEditLabel": "Creeare sau editare City",
+        "notFound": "No Cities found"
+      },
+      "created": "A fost creată o nouă entitate City cu identificatorul {{ param }}",
+      "updated": "City cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "City cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți City {{ id }}?"
+      },
+      "detail": {
+        "title": "City"
+      },
+      "name": "Name",
+      "country": "Country"
+    }
+  }
+}

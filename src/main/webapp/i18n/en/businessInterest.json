@@ -1,0 +1,22 @@
+{
+  "jobMatApp": {
+    "businessInterest": {
+      "home": {
+        "title": "Business Interests",
+        "createLabel": "Create a new Business Interest",
+        "createOrEditLabel": "Create or edit a Business Interest",
+        "notFound": "No Business Interests found"
+      },
+      "created": "A new Business Interest is created with identifier {{ param }}",
+      "updated": "A Business Interest is updated with identifier {{ param }}",
+      "deleted": "A Business Interest is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Business Interest {{ id }}?"
+      },
+      "detail": {
+        "title": "Business Interest"
+      },
+      "interest": "Interest"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "jobMatApp": {
+    "recruitmentStep": {
+      "home": {
+        "title": "Recruitment Steps",
+        "createLabel": "Creeare o nouă entitate Recruitment Step",
+        "createOrEditLabel": "Creeare sau editare Recruitment Step",
+        "notFound": "No Recruitment Steps found"
+      },
+      "created": "A fost creată o nouă entitate Recruitment Step cu identificatorul {{ param }}",
+      "updated": "Recruitment Step cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Recruitment Step cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Recruitment Step {{ id }}?"
+      },
+      "detail": {
+        "title": "Recruitment Step"
+      },
+      "description": "Description",
+      "sequence": "Sequence",
+      "application": "Application",
+      "opening": "Opening"
+    }
+  }
+}

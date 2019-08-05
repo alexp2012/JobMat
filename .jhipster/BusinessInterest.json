@@ -1,0 +1,23 @@
+{
+    "name": "BusinessInterest",
+    "fields": [
+        {
+            "fieldName": "interest",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190805134018",
+    "entityTableName": "business_interest",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

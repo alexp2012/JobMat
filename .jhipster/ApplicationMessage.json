@@ -1,0 +1,48 @@
+{
+    "name": "ApplicationMessage",
+    "fields": [
+        {
+            "fieldName": "text",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": 2
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "company",
+            "otherEntityRelationshipName": "applicationMessage",
+            "relationshipValidateRules": "required",
+            "relationshipName": "company",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "application",
+            "otherEntityRelationshipName": "message",
+            "relationshipValidateRules": "required",
+            "relationshipName": "application",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190805134025",
+    "entityTableName": "application_message",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,25 @@
+{
+  "jobMatApp": {
+    "application": {
+      "home": {
+        "title": "Applications",
+        "createLabel": "Creeare o nouă entitate Application",
+        "createOrEditLabel": "Creeare sau editare Application",
+        "notFound": "No Applications found"
+      },
+      "created": "A fost creată o nouă entitate Application cu identificatorul {{ param }}",
+      "updated": "Application cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Application cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Application {{ id }}?"
+      },
+      "detail": {
+        "title": "Application"
+      },
+      "date": "Date",
+      "message": "Message",
+      "step": "Step",
+      "candidate": "Candidate"
+    }
+  }
+}

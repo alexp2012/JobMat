@@ -1,0 +1,97 @@
+{
+    "name": "Opening",
+    "fields": [
+        {
+            "fieldName": "status",
+            "fieldType": "OpeningStatus",
+            "fieldValues": "ACTIVE,INACTIVE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": 2
+        },
+        {
+            "fieldName": "jD",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "positionsNo",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 1,
+            "fieldValidateRulesMax": 999
+        },
+        {
+            "fieldName": "mentions",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "publicForNonCollaborators",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "recruitmentStep",
+            "otherEntityRelationshipName": "opening",
+            "relationshipName": "step"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "city",
+            "otherEntityRelationshipName": "opening",
+            "relationshipValidateRules": "required",
+            "relationshipName": "city",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "tag",
+            "otherEntityRelationshipName": "opening",
+            "relationshipName": "tag",
+            "otherEntityField": "name",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "company",
+            "otherEntityRelationshipName": "opening",
+            "relationshipValidateRules": "required",
+            "relationshipName": "company",
+            "otherEntityField": "name"
+        }
+    ],
+    "changelogDate": "20190805134021",
+    "entityTableName": "opening",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

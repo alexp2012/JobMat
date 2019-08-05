@@ -42,7 +42,7 @@ entity Opening {
     JD Blob,
     positionsNo Integer required min(1) max(999),
     mentions String,
-    public Boolean required,
+    publicForNonCollaborators Boolean required,
     date Instant required
 }
 

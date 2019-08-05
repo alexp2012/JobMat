@@ -1,0 +1,11 @@
+id;status;initiator;invitations_no;message;contract;contract_content_type;supplier_id;customer_id
+1;INVITATION;CUSTOMER;73507;mobile intermediateX;../fake-data/blob/hipster.png;image/png;1;1
+2;ACTIVE;SUPPLIER;41261;incentivizeXXXXXXXXX;../fake-data/blob/hipster.png;image/png;2;2
+3;REJECTED;CUSTOMER;75087;compress Fantastic Global;../fake-data/blob/hipster.png;image/png;3;3
+4;ACTIVE;CUSTOMER;38920;IndustrialXXXXXXXXXX;../fake-data/blob/hipster.png;image/png;4;4
+5;ACTIVE;SUPPLIER;44844;methodicalXXXXXXXXXX;../fake-data/blob/hipster.png;image/png;5;5
+6;REJECTED;CUSTOMER;79157;back-end Unbranded Cambridgeshire;../fake-data/blob/hipster.png;image/png;6;6
+7;INVITATION;CUSTOMER;88770;cross-media FrozenXX;../fake-data/blob/hipster.png;image/png;7;7
+8;ACTIVE;CUSTOMER;70096;Fantastic Fresh Salad;../fake-data/blob/hipster.png;image/png;8;8
+9;ACTIVE;SUPPLIER;81279;InteractionsXXXXXXXX;../fake-data/blob/hipster.png;image/png;9;9
+10;INVITATION;SUPPLIER;42422;NationalXXXXXXXXXXXX;../fake-data/blob/hipster.png;image/png;10;10

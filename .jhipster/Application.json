@@ -1,0 +1,46 @@
+{
+    "name": "Application",
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "applicationMessage",
+            "otherEntityRelationshipName": "application",
+            "relationshipValidateRules": "required",
+            "relationshipName": "message"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "recruitmentStep",
+            "otherEntityRelationshipName": "application",
+            "relationshipValidateRules": "required",
+            "relationshipName": "step",
+            "otherEntityField": "description"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "candidate",
+            "otherEntityRelationshipName": "application",
+            "relationshipValidateRules": "required",
+            "relationshipName": "candidate",
+            "otherEntityField": "lastName"
+        }
+    ],
+    "changelogDate": "20190805134026",
+    "entityTableName": "application",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
