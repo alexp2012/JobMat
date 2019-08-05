@@ -1,0 +1,108 @@
+
+entity City {
+	name String required unique,
+    country String required
+}
+
+entity BusinessInterest {
+	interest String required unique
+}
+
+entity Company {
+	companyType CompanyType required,
+    name String required minlength(2),
+    cui String required unique minlength(4) maxlength(12),
+    joinDate Instant required
+}
+
+relationship ManyToMany {
+	Company{city(name)} to City,
+    Company{interest(interest)} to BusinessInterest
+}
+
+relationship OneToMany {
+    Company{user(login)} to User{company(name)},
+    Company{opening(title)} to Opening{company(name) required},
+    Company{candidate(lastName)} to Candidate{company(name) required}
+} 
+
+entity Candidate {
+	firstName String required minlength(2),
+	lastName String required minlength(2),
+	email String required unique pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/),
+	phoneNumber String,
+    CV Blob,
+    mentions String,
+	expectedSalaryEur Integer
+}
+
+entity Opening {
+	status OpeningStatus required,
+    title String required minlength(2),
+    JD Blob,
+    positionsNo Integer required min(1) max(999),
+    mentions String,
+    public Boolean required,
+    date Instant required
+}
+
+entity Tag {
+  name String required unique minlength(2) maxlength(10)
+}
+
+relationship ManyToMany {
+  	Opening{tag(name)} to Tag
+}
+
+relationship ManyToOne {
+	Opening{city(name) required} to City
+}
+
+relationship OneToMany {
+	Opening{step} to RecruitmentStep{opening(title) required},
+    RecruitmentStep{application} to Application{step(description) required},
+    Candidate to Application{candidate(lastName) required}
+}
+
+entity RecruitmentStep {
+	description String required minlength(2) maxlength(10),
+    sequence Integer required
+}
+
+entity Collaboration {
+	status CollaborationStatus required,
+    initiator CompanyType required,
+    invitationsNo Integer required,
+    message String required minlength(20),
+    contract Blob
+}
+
+relationship ManyToOne {
+	Collaboration{supplier(name) required} to Company,
+    Collaboration{customer(name) required} to Company
+}
+
+entity ApplicationMessage {
+	text String required minlength(2),
+    date Instant required
+}
+
+entity Application {
+	date Instant required
+}
+
+relationship OneToMany {
+	Application{message(text) required} to ApplicationMessage{application required}
+}
+
+relationship ManyToOne {
+	ApplicationMessage{company(name) required} to Company
+}
+
+service all with serviceClass
+paginate all with pagination
+
+enum OpeningStatus { ACTIVE, INACTIVE }
+enum CollaborationStatus { ACTIVE, INVITATION, REJECTED }
+enum CompanyType { SUPPLIER, CUSTOMER }
+
