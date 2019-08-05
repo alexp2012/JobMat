@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="application">
+            <h2><span jhiTranslate="jobMatApp.application.detail.title">Application</span> {{application.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jobMatApp.application.date">Date</span></dt>
+                <dd>
+                    <span>{{application.date}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.application.step">Step</span></dt>
+                <dd>
+                    <div *ngIf="application.step">
+                        <a [routerLink]="['/recruitment-step', application.step?.id, 'view']">{{application.step?.description}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.application.candidate">Candidate</span></dt>
+                <dd>
+                    <div *ngIf="application.candidate">
+                        <a [routerLink]="['/candidate', application.candidate?.id, 'view']">{{application.candidate?.lastName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/application', application.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

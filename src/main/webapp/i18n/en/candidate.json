@@ -1,0 +1,30 @@
+{
+  "jobMatApp": {
+    "candidate": {
+      "home": {
+        "title": "Candidates",
+        "createLabel": "Create a new Candidate",
+        "createOrEditLabel": "Create or edit a Candidate",
+        "notFound": "No Candidates found"
+      },
+      "created": "A new Candidate is created with identifier {{ param }}",
+      "updated": "A Candidate is updated with identifier {{ param }}",
+      "deleted": "A Candidate is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Candidate {{ id }}?"
+      },
+      "detail": {
+        "title": "Candidate"
+      },
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phoneNumber": "Phone Number",
+      "cV": "C V",
+      "mentions": "Mentions",
+      "expectedSalaryEur": "Expected Salary Eur",
+      "application": "Application",
+      "company": "Company"
+    }
+  }
+}

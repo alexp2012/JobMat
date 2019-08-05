@@ -1,0 +1,10 @@
+{
+  "jobMatApp": {
+    "CollaborationStatus": {
+      "null": "",
+      "ACTIVE": "ACTIVE",
+      "INVITATION": "INVITATION",
+      "REJECTED": "REJECTED"
+    }
+  }
+}

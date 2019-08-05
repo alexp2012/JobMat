@@ -1,0 +1,86 @@
+{
+    "name": "Company",
+    "fields": [
+        {
+            "fieldName": "companyType",
+            "fieldType": "CompanyType",
+            "fieldValues": "SUPPLIER,CUSTOMER",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": 2
+        },
+        {
+            "fieldName": "cui",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 4,
+            "fieldValidateRulesMaxlength": 12
+        },
+        {
+            "fieldName": "joinDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "company",
+            "relationshipName": "user"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "opening",
+            "otherEntityRelationshipName": "company",
+            "relationshipName": "opening"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "candidate",
+            "otherEntityRelationshipName": "company",
+            "relationshipName": "candidate"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "city",
+            "otherEntityRelationshipName": "company",
+            "relationshipName": "city",
+            "otherEntityField": "name",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "businessInterest",
+            "otherEntityRelationshipName": "company",
+            "relationshipName": "interest",
+            "otherEntityField": "interest",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190805134019",
+    "entityTableName": "company",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

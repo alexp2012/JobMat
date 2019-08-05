@@ -1,0 +1,9 @@
+{
+  "jobMatApp": {
+    "CompanyType": {
+      "null": "",
+      "SUPPLIER": "SUPPLIER",
+      "CUSTOMER": "CUSTOMER"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+    "name": "Collaboration",
+    "fields": [
+        {
+            "fieldName": "status",
+            "fieldType": "CollaborationStatus",
+            "fieldValues": "ACTIVE,INVITATION,REJECTED",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "initiator",
+            "fieldType": "CompanyType",
+            "fieldValues": "SUPPLIER,CUSTOMER",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "invitationsNo",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "message",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": 20
+        },
+        {
+            "fieldName": "contract",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "company",
+            "otherEntityRelationshipName": "collaboration",
+            "relationshipValidateRules": "required",
+            "relationshipName": "supplier",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "company",
+            "otherEntityRelationshipName": "collaboration",
+            "relationshipValidateRules": "required",
+            "relationshipName": "customer",
+            "otherEntityField": "name"
+        }
+    ],
+    "changelogDate": "20190805134024",
+    "entityTableName": "collaboration",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

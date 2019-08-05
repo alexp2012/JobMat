@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Opening.
+    -->
+    <changeSet id="20190805134021-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="city_id"
+                                 baseTableName="opening"
+                                 constraintName="fk_opening_city_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="city"/>
+
+        <addForeignKeyConstraint baseColumnNames="opening_id"
+                                 baseTableName="opening_tag"
+                                 constraintName="fk_opening_tag_opening_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="opening"/>
+
+        <addForeignKeyConstraint baseColumnNames="tag_id"
+                                 baseTableName="opening_tag"
+                                 constraintName="fk_opening_tag_tag_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tag"/>
+        
+        <addForeignKeyConstraint baseColumnNames="company_id"
+                                 baseTableName="opening"
+                                 constraintName="fk_opening_company_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,9 @@
+{
+  "jobMatApp": {
+    "OpeningStatus": {
+      "null": "",
+      "ACTIVE": "ACTIVE",
+      "INACTIVE": "INACTIVE"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Application.
+    -->
+    <changeSet id="20190805134026-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="step_id"
+                                 baseTableName="application"
+                                 constraintName="fk_application_step_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="recruitment_step"/>
+
+        <addForeignKeyConstraint baseColumnNames="candidate_id"
+                                 baseTableName="application"
+                                 constraintName="fk_application_candidate_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="candidate"/>
+
+    </changeSet>
+</databaseChangeLog>

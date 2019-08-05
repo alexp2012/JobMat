@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="company">
+            <h2><span jhiTranslate="jobMatApp.company.detail.title">Company</span> {{company.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jobMatApp.company.companyType">Company Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jobMatApp.CompanyType.' + company.companyType}}">{{company.companyType}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.company.name">Name</span></dt>
+                <dd>
+                    <span>{{company.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.company.cui">Cui</span></dt>
+                <dd>
+                    <span>{{company.cui}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.company.joinDate">Join Date</span></dt>
+                <dd>
+                    <span>{{company.joinDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.company.city">City</span></dt>
+                <dd>
+                    <span *ngFor="let city of company.cities; let last = last">
+                        <a [routerLink]="['/city', city?.id, 'view' ]">{{city.name}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.company.interest">Interest</span></dt>
+                <dd>
+                    <span *ngFor="let interest of company.interests; let last = last">
+                        <a [routerLink]="['/business-interest', interest?.id, 'view' ]">{{interest.interest}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/company', company.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

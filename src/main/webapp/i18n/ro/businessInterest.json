@@ -1,0 +1,22 @@
+{
+  "jobMatApp": {
+    "businessInterest": {
+      "home": {
+        "title": "Business Interests",
+        "createLabel": "Creeare o nouă entitate Business Interest",
+        "createOrEditLabel": "Creeare sau editare Business Interest",
+        "notFound": "No Business Interests found"
+      },
+      "created": "A fost creată o nouă entitate Business Interest cu identificatorul {{ param }}",
+      "updated": "Business Interest cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Business Interest cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Business Interest {{ id }}?"
+      },
+      "detail": {
+        "title": "Business Interest"
+      },
+      "interest": "Interest"
+    }
+  }
+}
