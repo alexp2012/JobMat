@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="candidate">
+            <h2><span jhiTranslate="jobMatApp.candidate.detail.title">Candidate</span> {{candidate.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jobMatApp.candidate.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{candidate.firstName}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.candidate.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{candidate.lastName}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.candidate.email">Email</span></dt>
+                <dd>
+                    <span>{{candidate.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.candidate.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{candidate.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.candidate.cV">C V</span></dt>
+                <dd>
+                    <div *ngIf="candidate.cV">
+                        <a (click)="openFile(candidate.cVContentType, candidate.cV)" jhiTranslate="entity.action.open">open</a>
+                        {{candidate.cVContentType}}, {{byteSize(candidate.cV)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.candidate.mentions">Mentions</span></dt>
+                <dd>
+                    <span>{{candidate.mentions}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.candidate.expectedSalaryEur">Expected Salary Eur</span></dt>
+                <dd>
+                    <span>{{candidate.expectedSalaryEur}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.candidate.company">Company</span></dt>
+                <dd>
+                    <div *ngIf="candidate.company">
+                        <a [routerLink]="['/company', candidate.company?.id, 'view']">{{candidate.company?.name}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/candidate', candidate.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

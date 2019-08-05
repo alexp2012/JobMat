@@ -43,6 +43,26 @@ public class CacheConfiguration {
             createCache(cm, ro.jobmat.domain.User.class.getName());
             createCache(cm, ro.jobmat.domain.Authority.class.getName());
             createCache(cm, ro.jobmat.domain.User.class.getName() + ".authorities");
+            createCache(cm, ro.jobmat.domain.City.class.getName());
+            createCache(cm, ro.jobmat.domain.BusinessInterest.class.getName());
+            createCache(cm, ro.jobmat.domain.Company.class.getName());
+            createCache(cm, ro.jobmat.domain.Company.class.getName() + ".users");
+            createCache(cm, ro.jobmat.domain.Company.class.getName() + ".openings");
+            createCache(cm, ro.jobmat.domain.Company.class.getName() + ".candidates");
+            createCache(cm, ro.jobmat.domain.Company.class.getName() + ".cities");
+            createCache(cm, ro.jobmat.domain.Company.class.getName() + ".interests");
+            createCache(cm, ro.jobmat.domain.Candidate.class.getName());
+            createCache(cm, ro.jobmat.domain.Candidate.class.getName() + ".applications");
+            createCache(cm, ro.jobmat.domain.Opening.class.getName());
+            createCache(cm, ro.jobmat.domain.Opening.class.getName() + ".steps");
+            createCache(cm, ro.jobmat.domain.Opening.class.getName() + ".tags");
+            createCache(cm, ro.jobmat.domain.Tag.class.getName());
+            createCache(cm, ro.jobmat.domain.RecruitmentStep.class.getName());
+            createCache(cm, ro.jobmat.domain.RecruitmentStep.class.getName() + ".applications");
+            createCache(cm, ro.jobmat.domain.Collaboration.class.getName());
+            createCache(cm, ro.jobmat.domain.ApplicationMessage.class.getName());
+            createCache(cm, ro.jobmat.domain.Application.class.getName());
+            createCache(cm, ro.jobmat.domain.Application.class.getName() + ".messages");
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,48 @@
+{
+    "name": "RecruitmentStep",
+    "fields": [
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 2,
+            "fieldValidateRulesMaxlength": 10
+        },
+        {
+            "fieldName": "sequence",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "application",
+            "otherEntityRelationshipName": "step",
+            "relationshipName": "application"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "opening",
+            "otherEntityRelationshipName": "step",
+            "relationshipValidateRules": "required",
+            "relationshipName": "opening",
+            "otherEntityField": "title"
+        }
+    ],
+    "changelogDate": "20190805134023",
+    "entityTableName": "recruitment_step",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

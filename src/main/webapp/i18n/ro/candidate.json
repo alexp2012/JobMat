@@ -1,0 +1,30 @@
+{
+  "jobMatApp": {
+    "candidate": {
+      "home": {
+        "title": "Candidates",
+        "createLabel": "Creeare o nouă entitate Candidate",
+        "createOrEditLabel": "Creeare sau editare Candidate",
+        "notFound": "No Candidates found"
+      },
+      "created": "A fost creată o nouă entitate Candidate cu identificatorul {{ param }}",
+      "updated": "Candidate cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Candidate cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Candidate {{ id }}?"
+      },
+      "detail": {
+        "title": "Candidate"
+      },
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phoneNumber": "Phone Number",
+      "cV": "C V",
+      "mentions": "Mentions",
+      "expectedSalaryEur": "Expected Salary Eur",
+      "application": "Application",
+      "company": "Company"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-recruitment-step-heading" jhiTranslate="jobMatApp.recruitmentStep.home.createOrEditLabel">Create or edit a Recruitment Step</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobMatApp.recruitmentStep.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                    <div *ngIf="editForm.get('description').invalid && (editForm.get('description').dirty || editForm.get('description').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('description').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('description').errors.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
+                        This field is required to be at least 2 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('description').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 10 }">
+                        This field cannot be longer than 10 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobMatApp.recruitmentStep.sequence" for="field_sequence">Sequence</label>
+                    <input type="number" class="form-control" name="sequence" id="field_sequence"
+                           formControlName="sequence"/>
+                    <div *ngIf="editForm.get('sequence').invalid && (editForm.get('sequence').dirty || editForm.get('sequence').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('sequence').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('sequence')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobMatApp.recruitmentStep.opening" for="field_opening">Opening</label>
+                    <select class="form-control" id="field_opening" name="opening" formControlName="opening">
+                        <option *ngIf="!editForm.get('opening').value" [ngValue]="null" selected></option>
+                        <option [ngValue]="openingOption.id === editForm.get('opening').value?.id ? editForm.get('opening').value : openingOption" *ngFor="let openingOption of openings; trackBy: trackOpeningById">{{openingOption.title}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('opening').invalid && (editForm.get('opening').dirty || editForm.get('opening').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('opening').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

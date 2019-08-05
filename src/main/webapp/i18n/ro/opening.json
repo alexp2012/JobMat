@@ -1,0 +1,32 @@
+{
+  "jobMatApp": {
+    "opening": {
+      "home": {
+        "title": "Openings",
+        "createLabel": "Creeare o nouă entitate Opening",
+        "createOrEditLabel": "Creeare sau editare Opening",
+        "notFound": "No Openings found"
+      },
+      "created": "A fost creată o nouă entitate Opening cu identificatorul {{ param }}",
+      "updated": "Opening cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Opening cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Opening {{ id }}?"
+      },
+      "detail": {
+        "title": "Opening"
+      },
+      "status": "Status",
+      "title": "Title",
+      "jD": "J D",
+      "positionsNo": "Positions No",
+      "mentions": "Mentions",
+      "publicForNonCollaborators": "Public For Non Collaborators",
+      "date": "Date",
+      "step": "Step",
+      "city": "City",
+      "tag": "Tag",
+      "company": "Company"
+    }
+  }
+}

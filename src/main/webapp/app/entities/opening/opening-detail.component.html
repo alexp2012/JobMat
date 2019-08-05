@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="opening">
+            <h2><span jhiTranslate="jobMatApp.opening.detail.title">Opening</span> {{opening.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jobMatApp.opening.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jobMatApp.OpeningStatus.' + opening.status}}">{{opening.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.opening.title">Title</span></dt>
+                <dd>
+                    <span>{{opening.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.opening.jD">J D</span></dt>
+                <dd>
+                    <div *ngIf="opening.jD">
+                        <a (click)="openFile(opening.jDContentType, opening.jD)" jhiTranslate="entity.action.open">open</a>
+                        {{opening.jDContentType}}, {{byteSize(opening.jD)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.opening.positionsNo">Positions No</span></dt>
+                <dd>
+                    <span>{{opening.positionsNo}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.opening.mentions">Mentions</span></dt>
+                <dd>
+                    <span>{{opening.mentions}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.opening.publicForNonCollaborators">Public For Non Collaborators</span></dt>
+                <dd>
+                    <span>{{opening.publicForNonCollaborators}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.opening.date">Date</span></dt>
+                <dd>
+                    <span>{{opening.date}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.opening.city">City</span></dt>
+                <dd>
+                    <div *ngIf="opening.city">
+                        <a [routerLink]="['/city', opening.city?.id, 'view']">{{opening.city?.name}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.opening.tag">Tag</span></dt>
+                <dd>
+                    <span *ngFor="let tag of opening.tags; let last = last">
+                        <a [routerLink]="['/tag', tag?.id, 'view' ]">{{tag.name}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.opening.company">Company</span></dt>
+                <dd>
+                    <div *ngIf="opening.company">
+                        <a [routerLink]="['/company', opening.company?.id, 'view']">{{opening.company?.name}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/opening', opening.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

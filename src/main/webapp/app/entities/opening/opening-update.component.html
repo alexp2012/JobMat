@@ -1,0 +1,157 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-opening-heading" jhiTranslate="jobMatApp.opening.home.createOrEditLabel">Create or edit a Opening</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobMatApp.opening.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="ACTIVE">{{'jobMatApp.OpeningStatus.ACTIVE' | translate}}</option>
+                        <option value="INACTIVE">{{'jobMatApp.OpeningStatus.INACTIVE' | translate}}</option>
+                    </select>
+                    <div *ngIf="editForm.get('status').invalid && (editForm.get('status').dirty || editForm.get('status').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('status').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobMatApp.opening.title" for="field_title">Title</label>
+                    <input type="text" class="form-control" name="title" id="field_title"
+                           formControlName="title"/>
+                    <div *ngIf="editForm.get('title').invalid && (editForm.get('title').dirty || editForm.get('title').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('title').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('title').errors.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
+                        This field is required to be at least 2 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobMatApp.opening.jD" for="field_jD">J D</label>
+                    <div>
+                        <div *ngIf="editForm.get('jD').value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('jDContentType').value, editForm.get('jD').value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('jDContentType').value}}, {{byteSize(editForm.get('jD').value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({jD: null});editForm.patchValue({jDContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_jD" (change)="setFileData($event, 'jD', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="jD" id="field_jD"
+                           formControlName="jD"/>
+                    <input type="hidden" class="form-control" name="jDContentType" id="field_jDContentType"
+                           formControlName="jDContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobMatApp.opening.positionsNo" for="field_positionsNo">Positions No</label>
+                    <input type="number" class="form-control" name="positionsNo" id="field_positionsNo"
+                           formControlName="positionsNo"/>
+                    <div *ngIf="editForm.get('positionsNo').invalid && (editForm.get('positionsNo').dirty || editForm.get('positionsNo').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('positionsNo').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('positionsNo').errors.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 1 }">
+                            This field should be at least 1.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('positionsNo').errors.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 999 }">
+                            This field cannot be more than 999.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('positionsNo')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobMatApp.opening.mentions" for="field_mentions">Mentions</label>
+                    <input type="text" class="form-control" name="mentions" id="field_mentions"
+                           formControlName="mentions"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobMatApp.opening.publicForNonCollaborators" for="field_publicForNonCollaborators">Public For Non Collaborators</label>
+                    <input type="checkbox" class="form-control" name="publicForNonCollaborators" id="field_publicForNonCollaborators"
+                           formControlName="publicForNonCollaborators"/>
+                    <div *ngIf="editForm.get('publicForNonCollaborators').invalid && (editForm.get('publicForNonCollaborators').dirty || editForm.get('publicForNonCollaborators').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('publicForNonCollaborators').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobMatApp.opening.date" for="field_date">Date</label>
+                    <div class="d-flex">
+                        <input id="field_date" type="datetime-local" class="form-control" name="date" formControlName="date" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('date').invalid && (editForm.get('date').dirty || editForm.get('date').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('date').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('date').errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobMatApp.opening.city" for="field_city">City</label>
+                    <select class="form-control" id="field_city" name="city" formControlName="city">
+                        <option *ngIf="!editForm.get('city').value" [ngValue]="null" selected></option>
+                        <option [ngValue]="cityOption.id === editForm.get('city').value?.id ? editForm.get('city').value : cityOption" *ngFor="let cityOption of cities; trackBy: trackCityById">{{cityOption.name}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('city').invalid && (editForm.get('city').dirty || editForm.get('city').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('city').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="jobMatApp.opening.tag" for="field_tags">Tag</label>
+                    <select class="form-control" id="field_tags" multiple name="tags" formControlName="tags">
+                        <option [ngValue]="getSelected(editForm.get('tags').value, tagOption)" *ngFor="let tagOption of tags; trackBy: trackTagById">{{tagOption.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobMatApp.opening.company" for="field_company">Company</label>
+                    <select class="form-control" id="field_company" name="company" formControlName="company">
+                        <option *ngIf="!editForm.get('company').value" [ngValue]="null" selected></option>
+                        <option [ngValue]="companyOption.id === editForm.get('company').value?.id ? editForm.get('company').value : companyOption" *ngFor="let companyOption of companies; trackBy: trackCompanyById">{{companyOption.name}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('company').invalid && (editForm.get('company').dirty || editForm.get('company').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('company').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

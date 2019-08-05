@@ -1,0 +1,25 @@
+{
+  "jobMatApp": {
+    "applicationMessage": {
+      "home": {
+        "title": "Application Messages",
+        "createLabel": "Creeare o nouă entitate Application Message",
+        "createOrEditLabel": "Creeare sau editare Application Message",
+        "notFound": "No Application Messages found"
+      },
+      "created": "A fost creată o nouă entitate Application Message cu identificatorul {{ param }}",
+      "updated": "Application Message cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Application Message cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Application Message {{ id }}?"
+      },
+      "detail": {
+        "title": "Application Message"
+      },
+      "text": "Text",
+      "date": "Date",
+      "company": "Company",
+      "application": "Application"
+    }
+  }
+}
