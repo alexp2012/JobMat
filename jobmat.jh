@@ -15,13 +15,21 @@ entity Company {
     joinDate Instant required
 }
 
+entity ExtendedUser {
+
+}
+
+relationship OneToOne {
+	ExtendedUser{user(login)} to User
+}
+
 relationship ManyToMany {
 	Company{city(name)} to City,
     Company{interest(interest)} to BusinessInterest
 }
 
 relationship OneToMany {
-    Company{user(login)} to User{company(name)},
+    Company{user(login)} to ExtendedUser{company(name)},
     Company{opening(title)} to Opening{company(name) required},
     Company{candidate(lastName)} to Candidate{company(name) required}
 } 
