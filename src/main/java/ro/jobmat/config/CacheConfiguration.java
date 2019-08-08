@@ -63,6 +63,7 @@ public class CacheConfiguration {
             createCache(cm, ro.jobmat.domain.ApplicationMessage.class.getName());
             createCache(cm, ro.jobmat.domain.Application.class.getName());
             createCache(cm, ro.jobmat.domain.Application.class.getName() + ".messages");
+            createCache(cm, ro.jobmat.domain.ExtendedUser.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

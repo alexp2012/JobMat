@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="extendedUser">
+            <h2><span jhiTranslate="jobMatApp.extendedUser.detail.title">Extended User</span> {{extendedUser.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jobMatApp.extendedUser.user">User</span></dt>
+                <dd>
+                    {{extendedUser.user?.login}}
+                </dd>
+                <dt><span jhiTranslate="jobMatApp.extendedUser.company">Company</span></dt>
+                <dd>
+                    <div *ngIf="extendedUser.company">
+                        <a [routerLink]="['/company', extendedUser.company?.id, 'view']">{{extendedUser.company?.name}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/extended-user', extendedUser.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

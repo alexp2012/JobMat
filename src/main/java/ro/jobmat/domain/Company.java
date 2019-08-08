@@ -47,7 +47,7 @@ public class Company implements Serializable {
 
     @OneToMany(mappedBy = "company")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<User> users = new HashSet<>();
+    private Set<ExtendedUser> users = new HashSet<>();
 
     @OneToMany(mappedBy = "company")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -132,29 +132,29 @@ public class Company implements Serializable {
         this.joinDate = joinDate;
     }
 
-    public Set<User> getUsers() {
+    public Set<ExtendedUser> getUsers() {
         return users;
     }
 
-    public Company users(Set<User> users) {
-        this.users = users;
+    public Company users(Set<ExtendedUser> extendedUsers) {
+        this.users = extendedUsers;
         return this;
     }
 
-    public Company addUser(User user) {
-        this.users.add(user);
-        user.setCompany(this);
+    public Company addUser(ExtendedUser extendedUser) {
+        this.users.add(extendedUser);
+        extendedUser.setCompany(this);
         return this;
     }
 
-    public Company removeUser(User user) {
-        this.users.remove(user);
-        user.setCompany(null);
+    public Company removeUser(ExtendedUser extendedUser) {
+        this.users.remove(extendedUser);
+        extendedUser.setCompany(null);
         return this;
     }
 
-    public void setUsers(Set<User> users) {
-        this.users = users;
+    public void setUsers(Set<ExtendedUser> extendedUsers) {
+        this.users = extendedUsers;
     }
 
     public Set<Opening> getOpenings() {

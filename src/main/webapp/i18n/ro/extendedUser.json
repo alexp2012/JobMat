@@ -1,0 +1,23 @@
+{
+  "jobMatApp": {
+    "extendedUser": {
+      "home": {
+        "title": "Extended Users",
+        "createLabel": "Creeare o nouă entitate Extended User",
+        "createOrEditLabel": "Creeare sau editare Extended User",
+        "notFound": "No Extended Users found"
+      },
+      "created": "A fost creată o nouă entitate Extended User cu identificatorul {{ param }}",
+      "updated": "Extended User cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Extended User cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Extended User {{ id }}?"
+      },
+      "detail": {
+        "title": "Extended User"
+      },
+      "user": "User",
+      "company": "Company"
+    }
+  }
+}
