@@ -41,7 +41,7 @@
     "relationships": [
         {
             "relationshipType": "one-to-many",
-            "otherEntityName": "user",
+            "otherEntityName": "extendedUser",
             "otherEntityRelationshipName": "company",
             "relationshipName": "user"
         },

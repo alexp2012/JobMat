@@ -43,6 +43,10 @@ import { RouterModule } from '@angular/router';
       {
         path: 'application',
         loadChildren: () => import('./application/application.module').then(m => m.JobMatApplicationModule)
+      },
+      {
+        path: 'extended-user',
+        loadChildren: () => import('./extended-user/extended-user.module').then(m => m.JobMatExtendedUserModule)
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])

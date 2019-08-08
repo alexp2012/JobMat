@@ -1,5 +1,5 @@
 import { Moment } from 'moment';
-import { IUser } from 'app/core/user/user.model';
+import { IExtendedUser } from 'app/shared/model/extended-user.model';
 import { IOpening } from 'app/shared/model/opening.model';
 import { ICandidate } from 'app/shared/model/candidate.model';
 import { ICity } from 'app/shared/model/city.model';
@@ -16,7 +16,7 @@ export interface ICompany {
   name?: string;
   cui?: string;
   joinDate?: Moment;
-  users?: IUser[];
+  users?: IExtendedUser[];
   openings?: IOpening[];
   candidates?: ICandidate[];
   cities?: ICity[];
@@ -30,7 +30,7 @@ export class Company implements ICompany {
     public name?: string,
     public cui?: string,
     public joinDate?: Moment,
-    public users?: IUser[],
+    public users?: IExtendedUser[],
     public openings?: IOpening[],
     public candidates?: ICandidate[],
     public cities?: ICity[],
