@@ -1,18 +1,12 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { JhiLanguageService } from 'ng-jhipster';
-import { JhiLanguageHelper } from 'app/core';
 
-import { JobMatSharedModule } from 'app/shared';
-import {
-  CompanyComponent,
-  CompanyDetailComponent,
-  CompanyUpdateComponent,
-  CompanyDeletePopupComponent,
-  CompanyDeleteDialogComponent,
-  companyRoute,
-  companyPopupRoute
-} from './';
+import { JobMatSharedModule } from 'app/shared/shared.module';
+import { CompanyComponent } from './company.component';
+import { CompanyDetailComponent } from './company-detail.component';
+import { CompanyUpdateComponent } from './company-update.component';
+import { CompanyDeletePopupComponent, CompanyDeleteDialogComponent } from './company-delete-dialog.component';
+import { companyRoute, companyPopupRoute } from './company.route';
 
 const ENTITY_STATES = [...companyRoute, ...companyPopupRoute];
 
@@ -25,16 +19,6 @@ const ENTITY_STATES = [...companyRoute, ...companyPopupRoute];
     CompanyDeleteDialogComponent,
     CompanyDeletePopupComponent
   ],
-  entryComponents: [CompanyComponent, CompanyUpdateComponent, CompanyDeleteDialogComponent, CompanyDeletePopupComponent],
-  providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  entryComponents: [CompanyDeleteDialogComponent]
 })
-export class JobMatCompanyModule {
-  constructor(private languageService: JhiLanguageService, private languageHelper: JhiLanguageHelper) {
-    this.languageHelper.language.subscribe((languageKey: string) => {
-      if (languageKey) {
-        this.languageService.changeLanguage(languageKey);
-      }
-    });
-  }
-}
+export class JobMatCompanyModule {}

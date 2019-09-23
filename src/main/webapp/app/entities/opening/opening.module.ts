@@ -1,18 +1,12 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { JhiLanguageService } from 'ng-jhipster';
-import { JhiLanguageHelper } from 'app/core';
 
-import { JobMatSharedModule } from 'app/shared';
-import {
-  OpeningComponent,
-  OpeningDetailComponent,
-  OpeningUpdateComponent,
-  OpeningDeletePopupComponent,
-  OpeningDeleteDialogComponent,
-  openingRoute,
-  openingPopupRoute
-} from './';
+import { JobMatSharedModule } from 'app/shared/shared.module';
+import { OpeningComponent } from './opening.component';
+import { OpeningDetailComponent } from './opening-detail.component';
+import { OpeningUpdateComponent } from './opening-update.component';
+import { OpeningDeletePopupComponent, OpeningDeleteDialogComponent } from './opening-delete-dialog.component';
+import { openingRoute, openingPopupRoute } from './opening.route';
 
 const ENTITY_STATES = [...openingRoute, ...openingPopupRoute];
 
@@ -25,16 +19,6 @@ const ENTITY_STATES = [...openingRoute, ...openingPopupRoute];
     OpeningDeleteDialogComponent,
     OpeningDeletePopupComponent
   ],
-  entryComponents: [OpeningComponent, OpeningUpdateComponent, OpeningDeleteDialogComponent, OpeningDeletePopupComponent],
-  providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  entryComponents: [OpeningDeleteDialogComponent]
 })
-export class JobMatOpeningModule {
-  constructor(private languageService: JhiLanguageService, private languageHelper: JhiLanguageHelper) {
-    this.languageHelper.language.subscribe((languageKey: string) => {
-      if (languageKey) {
-        this.languageService.changeLanguage(languageKey);
-      }
-    });
-  }
-}
+export class JobMatOpeningModule {}

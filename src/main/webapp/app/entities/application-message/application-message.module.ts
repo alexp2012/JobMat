@@ -1,18 +1,15 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { JhiLanguageService } from 'ng-jhipster';
-import { JhiLanguageHelper } from 'app/core';
 
-import { JobMatSharedModule } from 'app/shared';
+import { JobMatSharedModule } from 'app/shared/shared.module';
+import { ApplicationMessageComponent } from './application-message.component';
+import { ApplicationMessageDetailComponent } from './application-message-detail.component';
+import { ApplicationMessageUpdateComponent } from './application-message-update.component';
 import {
-  ApplicationMessageComponent,
-  ApplicationMessageDetailComponent,
-  ApplicationMessageUpdateComponent,
   ApplicationMessageDeletePopupComponent,
-  ApplicationMessageDeleteDialogComponent,
-  applicationMessageRoute,
-  applicationMessagePopupRoute
-} from './';
+  ApplicationMessageDeleteDialogComponent
+} from './application-message-delete-dialog.component';
+import { applicationMessageRoute, applicationMessagePopupRoute } from './application-message.route';
 
 const ENTITY_STATES = [...applicationMessageRoute, ...applicationMessagePopupRoute];
 
@@ -25,21 +22,6 @@ const ENTITY_STATES = [...applicationMessageRoute, ...applicationMessagePopupRou
     ApplicationMessageDeleteDialogComponent,
     ApplicationMessageDeletePopupComponent
   ],
-  entryComponents: [
-    ApplicationMessageComponent,
-    ApplicationMessageUpdateComponent,
-    ApplicationMessageDeleteDialogComponent,
-    ApplicationMessageDeletePopupComponent
-  ],
-  providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  entryComponents: [ApplicationMessageDeleteDialogComponent]
 })
-export class JobMatApplicationMessageModule {
-  constructor(private languageService: JhiLanguageService, private languageHelper: JhiLanguageHelper) {
-    this.languageHelper.language.subscribe((languageKey: string) => {
-      if (languageKey) {
-        this.languageService.changeLanguage(languageKey);
-      }
-    });
-  }
-}
+export class JobMatApplicationMessageModule {}

@@ -1,13 +1,11 @@
-/* tslint:disable max-line-length */
 import { TestBed, getTestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { of } from 'rxjs';
 import { take, map } from 'rxjs/operators';
 import * as moment from 'moment';
 import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 import { CompanyService } from 'app/entities/company/company.service';
-import { ICompany, Company, CompanyType } from 'app/shared/model/company.model';
+import { ICompany, Company } from 'app/shared/model/company.model';
+import { CompanyType } from 'app/shared/model/enumerations/company-type.model';
 
 describe('Service Tests', () => {
   describe('Company Service', () => {
@@ -31,7 +29,7 @@ describe('Service Tests', () => {
     });
 
     describe('Service methods', () => {
-      it('should find an element', async () => {
+      it('should find an element', () => {
         const returnedFromService = Object.assign(
           {
             joinDate: currentDate.format(DATE_TIME_FORMAT)
@@ -48,7 +46,7 @@ describe('Service Tests', () => {
         expect(expectedResult).toMatchObject({ body: elemDefault });
       });
 
-      it('should create a Company', async () => {
+      it('should create a Company', () => {
         const returnedFromService = Object.assign(
           {
             id: 0,
@@ -71,7 +69,7 @@ describe('Service Tests', () => {
         expect(expectedResult).toMatchObject({ body: expected });
       });
 
-      it('should update a Company', async () => {
+      it('should update a Company', () => {
         const returnedFromService = Object.assign(
           {
             companyType: 'BBBBBB',
@@ -97,7 +95,7 @@ describe('Service Tests', () => {
         expect(expectedResult).toMatchObject({ body: expected });
       });
 
-      it('should return a list of Company', async () => {
+      it('should return a list of Company', () => {
         const returnedFromService = Object.assign(
           {
             companyType: 'BBBBBB',
@@ -126,8 +124,8 @@ describe('Service Tests', () => {
         expect(expectedResult).toContainEqual(expected);
       });
 
-      it('should delete a Company', async () => {
-        const rxPromise = service.delete(123).subscribe(resp => (expectedResult = resp.ok));
+      it('should delete a Company', () => {
+        service.delete(123).subscribe(resp => (expectedResult = resp.ok));
 
         const req = httpMock.expectOne({ method: 'DELETE' });
         req.flush({ status: 200 });

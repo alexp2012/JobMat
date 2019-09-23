@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -10,9 +12,9 @@ import { JhiAlertService } from 'ng-jhipster';
 import { ICompany, Company } from 'app/shared/model/company.model';
 import { CompanyService } from './company.service';
 import { ICity } from 'app/shared/model/city.model';
-import { CityService } from 'app/entities/city';
+import { CityService } from 'app/entities/city/city.service';
 import { IBusinessInterest } from 'app/shared/model/business-interest.model';
-import { BusinessInterestService } from 'app/entities/business-interest';
+import { BusinessInterestService } from 'app/entities/business-interest/business-interest.service';
 
 @Component({
   selector: 'jhi-company-update',
@@ -128,7 +130,7 @@ export class CompanyUpdateComponent implements OnInit {
     return item.id;
   }
 
-  getSelected(selectedVals: Array<any>, option: any) {
+  getSelected(selectedVals: any[], option: any) {
     if (selectedVals) {
       for (let i = 0; i < selectedVals.length; i++) {
         if (option.id === selectedVals[i].id) {

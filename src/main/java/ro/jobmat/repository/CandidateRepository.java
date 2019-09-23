@@ -1,5 +1,4 @@
 package ro.jobmat.repository;
-
 import ro.jobmat.domain.Candidate;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;

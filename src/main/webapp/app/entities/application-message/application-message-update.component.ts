@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -10,9 +12,9 @@ import { JhiAlertService } from 'ng-jhipster';
 import { IApplicationMessage, ApplicationMessage } from 'app/shared/model/application-message.model';
 import { ApplicationMessageService } from './application-message.service';
 import { ICompany } from 'app/shared/model/company.model';
-import { CompanyService } from 'app/entities/company';
+import { CompanyService } from 'app/entities/company/company.service';
 import { IApplication } from 'app/shared/model/application.model';
-import { ApplicationService } from 'app/entities/application';
+import { ApplicationService } from 'app/entities/application/application.service';
 
 @Component({
   selector: 'jhi-application-message-update',

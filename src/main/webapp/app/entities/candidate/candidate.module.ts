@@ -1,18 +1,12 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { JhiLanguageService } from 'ng-jhipster';
-import { JhiLanguageHelper } from 'app/core';
 
-import { JobMatSharedModule } from 'app/shared';
-import {
-  CandidateComponent,
-  CandidateDetailComponent,
-  CandidateUpdateComponent,
-  CandidateDeletePopupComponent,
-  CandidateDeleteDialogComponent,
-  candidateRoute,
-  candidatePopupRoute
-} from './';
+import { JobMatSharedModule } from 'app/shared/shared.module';
+import { CandidateComponent } from './candidate.component';
+import { CandidateDetailComponent } from './candidate-detail.component';
+import { CandidateUpdateComponent } from './candidate-update.component';
+import { CandidateDeletePopupComponent, CandidateDeleteDialogComponent } from './candidate-delete-dialog.component';
+import { candidateRoute, candidatePopupRoute } from './candidate.route';
 
 const ENTITY_STATES = [...candidateRoute, ...candidatePopupRoute];
 
@@ -25,16 +19,6 @@ const ENTITY_STATES = [...candidateRoute, ...candidatePopupRoute];
     CandidateDeleteDialogComponent,
     CandidateDeletePopupComponent
   ],
-  entryComponents: [CandidateComponent, CandidateUpdateComponent, CandidateDeleteDialogComponent, CandidateDeletePopupComponent],
-  providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  entryComponents: [CandidateDeleteDialogComponent]
 })
-export class JobMatCandidateModule {
-  constructor(private languageService: JhiLanguageService, private languageHelper: JhiLanguageHelper) {
-    this.languageHelper.language.subscribe((languageKey: string) => {
-      if (languageKey) {
-        this.languageService.changeLanguage(languageKey);
-      }
-    });
-  }
-}
+export class JobMatCandidateModule {}

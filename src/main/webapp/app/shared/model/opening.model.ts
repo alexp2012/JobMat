@@ -3,11 +3,7 @@ import { IRecruitmentStep } from 'app/shared/model/recruitment-step.model';
 import { ICity } from 'app/shared/model/city.model';
 import { ITag } from 'app/shared/model/tag.model';
 import { ICompany } from 'app/shared/model/company.model';
-
-export const enum OpeningStatus {
-  ACTIVE = 'ACTIVE',
-  INACTIVE = 'INACTIVE'
-}
+import { OpeningStatus } from 'app/shared/model/enumerations/opening-status.model';
 
 export interface IOpening {
   id?: number;

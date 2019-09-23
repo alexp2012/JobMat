@@ -6,7 +6,7 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-    <property name="autoIncrement" value="true"/>
+        <property name="autoIncrement" value="true"/>
 
     <!--
         Added the entity Company.
@@ -19,22 +19,17 @@
             <column name="company_type" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="name" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="cui" type="varchar(12)">
                 <constraints nullable="false" unique="true" uniqueConstraintName="ux_company_cui" />
             </column>
-
             <column name="join_date" type="datetime">
                 <constraints nullable="false" />
             </column>
-
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-
         <dropDefaultValue tableName="company" columnName="join_date" columnDataType="datetime"/>
     </changeSet>
 

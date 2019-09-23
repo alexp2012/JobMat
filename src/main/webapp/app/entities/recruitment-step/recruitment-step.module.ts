@@ -1,18 +1,12 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { JhiLanguageService } from 'ng-jhipster';
-import { JhiLanguageHelper } from 'app/core';
 
-import { JobMatSharedModule } from 'app/shared';
-import {
-  RecruitmentStepComponent,
-  RecruitmentStepDetailComponent,
-  RecruitmentStepUpdateComponent,
-  RecruitmentStepDeletePopupComponent,
-  RecruitmentStepDeleteDialogComponent,
-  recruitmentStepRoute,
-  recruitmentStepPopupRoute
-} from './';
+import { JobMatSharedModule } from 'app/shared/shared.module';
+import { RecruitmentStepComponent } from './recruitment-step.component';
+import { RecruitmentStepDetailComponent } from './recruitment-step-detail.component';
+import { RecruitmentStepUpdateComponent } from './recruitment-step-update.component';
+import { RecruitmentStepDeletePopupComponent, RecruitmentStepDeleteDialogComponent } from './recruitment-step-delete-dialog.component';
+import { recruitmentStepRoute, recruitmentStepPopupRoute } from './recruitment-step.route';
 
 const ENTITY_STATES = [...recruitmentStepRoute, ...recruitmentStepPopupRoute];
 
@@ -25,21 +19,6 @@ const ENTITY_STATES = [...recruitmentStepRoute, ...recruitmentStepPopupRoute];
     RecruitmentStepDeleteDialogComponent,
     RecruitmentStepDeletePopupComponent
   ],
-  entryComponents: [
-    RecruitmentStepComponent,
-    RecruitmentStepUpdateComponent,
-    RecruitmentStepDeleteDialogComponent,
-    RecruitmentStepDeletePopupComponent
-  ],
-  providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  entryComponents: [RecruitmentStepDeleteDialogComponent]
 })
-export class JobMatRecruitmentStepModule {
-  constructor(private languageService: JhiLanguageService, private languageHelper: JhiLanguageHelper) {
-    this.languageHelper.language.subscribe((languageKey: string) => {
-      if (languageKey) {
-        this.languageService.changeLanguage(languageKey);
-      }
-    });
-  }
-}
+export class JobMatRecruitmentStepModule {}

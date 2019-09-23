@@ -6,7 +6,7 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-    <property name="autoIncrement" value="true"/>
+        <property name="autoIncrement" value="true"/>
 
     <!--
         Added the entity Collaboration.
@@ -19,37 +19,29 @@
             <column name="status" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="initiator" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="invitations_no" type="integer">
                 <constraints nullable="false" />
             </column>
-
             <column name="message" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="contract" type="longblob">
                 <constraints nullable="true" />
             </column>
             <column name="contract_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
             <column name="supplier_id" type="bigint">
                 <constraints nullable="false" />
             </column>
-
             <column name="customer_id" type="bigint">
                 <constraints nullable="false" />
             </column>
-
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-
     </changeSet>
 
     <changeSet id="20190805134024-1-relations" author="jhipster">
