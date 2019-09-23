@@ -1,34 +1,18 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { JhiLanguageService } from 'ng-jhipster';
-import { JhiLanguageHelper } from 'app/core';
 
-import { JobMatSharedModule } from 'app/shared';
-import {
-  CityComponent,
-  CityDetailComponent,
-  CityUpdateComponent,
-  CityDeletePopupComponent,
-  CityDeleteDialogComponent,
-  cityRoute,
-  cityPopupRoute
-} from './';
+import { JobMatSharedModule } from 'app/shared/shared.module';
+import { CityComponent } from './city.component';
+import { CityDetailComponent } from './city-detail.component';
+import { CityUpdateComponent } from './city-update.component';
+import { CityDeletePopupComponent, CityDeleteDialogComponent } from './city-delete-dialog.component';
+import { cityRoute, cityPopupRoute } from './city.route';
 
 const ENTITY_STATES = [...cityRoute, ...cityPopupRoute];
 
 @NgModule({
   imports: [JobMatSharedModule, RouterModule.forChild(ENTITY_STATES)],
   declarations: [CityComponent, CityDetailComponent, CityUpdateComponent, CityDeleteDialogComponent, CityDeletePopupComponent],
-  entryComponents: [CityComponent, CityUpdateComponent, CityDeleteDialogComponent, CityDeletePopupComponent],
-  providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  entryComponents: [CityDeleteDialogComponent]
 })
-export class JobMatCityModule {
-  constructor(private languageService: JhiLanguageService, private languageHelper: JhiLanguageHelper) {
-    this.languageHelper.language.subscribe((languageKey: string) => {
-      if (languageKey) {
-        this.languageService.changeLanguage(languageKey);
-      }
-    });
-  }
-}
+export class JobMatCityModule {}

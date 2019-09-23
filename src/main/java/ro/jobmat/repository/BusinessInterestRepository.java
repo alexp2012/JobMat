@@ -1,5 +1,4 @@
 package ro.jobmat.repository;
-
 import ro.jobmat.domain.BusinessInterest;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;

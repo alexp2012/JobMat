@@ -1,18 +1,12 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { JhiLanguageService } from 'ng-jhipster';
-import { JhiLanguageHelper } from 'app/core';
 
-import { JobMatSharedModule } from 'app/shared';
-import {
-  ExtendedUserComponent,
-  ExtendedUserDetailComponent,
-  ExtendedUserUpdateComponent,
-  ExtendedUserDeletePopupComponent,
-  ExtendedUserDeleteDialogComponent,
-  extendedUserRoute,
-  extendedUserPopupRoute
-} from './';
+import { JobMatSharedModule } from 'app/shared/shared.module';
+import { ExtendedUserComponent } from './extended-user.component';
+import { ExtendedUserDetailComponent } from './extended-user-detail.component';
+import { ExtendedUserUpdateComponent } from './extended-user-update.component';
+import { ExtendedUserDeletePopupComponent, ExtendedUserDeleteDialogComponent } from './extended-user-delete-dialog.component';
+import { extendedUserRoute, extendedUserPopupRoute } from './extended-user.route';
 
 const ENTITY_STATES = [...extendedUserRoute, ...extendedUserPopupRoute];
 
@@ -25,21 +19,6 @@ const ENTITY_STATES = [...extendedUserRoute, ...extendedUserPopupRoute];
     ExtendedUserDeleteDialogComponent,
     ExtendedUserDeletePopupComponent
   ],
-  entryComponents: [
-    ExtendedUserComponent,
-    ExtendedUserUpdateComponent,
-    ExtendedUserDeleteDialogComponent,
-    ExtendedUserDeletePopupComponent
-  ],
-  providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  entryComponents: [ExtendedUserDeleteDialogComponent]
 })
-export class JobMatExtendedUserModule {
-  constructor(private languageService: JhiLanguageService, private languageHelper: JhiLanguageHelper) {
-    this.languageHelper.language.subscribe((languageKey: string) => {
-      if (languageKey) {
-        this.languageService.changeLanguage(languageKey);
-      }
-    });
-  }
-}
+export class JobMatExtendedUserModule {}

@@ -1,18 +1,12 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { JhiLanguageService } from 'ng-jhipster';
-import { JhiLanguageHelper } from 'app/core';
 
-import { JobMatSharedModule } from 'app/shared';
-import {
-  BusinessInterestComponent,
-  BusinessInterestDetailComponent,
-  BusinessInterestUpdateComponent,
-  BusinessInterestDeletePopupComponent,
-  BusinessInterestDeleteDialogComponent,
-  businessInterestRoute,
-  businessInterestPopupRoute
-} from './';
+import { JobMatSharedModule } from 'app/shared/shared.module';
+import { BusinessInterestComponent } from './business-interest.component';
+import { BusinessInterestDetailComponent } from './business-interest-detail.component';
+import { BusinessInterestUpdateComponent } from './business-interest-update.component';
+import { BusinessInterestDeletePopupComponent, BusinessInterestDeleteDialogComponent } from './business-interest-delete-dialog.component';
+import { businessInterestRoute, businessInterestPopupRoute } from './business-interest.route';
 
 const ENTITY_STATES = [...businessInterestRoute, ...businessInterestPopupRoute];
 
@@ -25,21 +19,6 @@ const ENTITY_STATES = [...businessInterestRoute, ...businessInterestPopupRoute];
     BusinessInterestDeleteDialogComponent,
     BusinessInterestDeletePopupComponent
   ],
-  entryComponents: [
-    BusinessInterestComponent,
-    BusinessInterestUpdateComponent,
-    BusinessInterestDeleteDialogComponent,
-    BusinessInterestDeletePopupComponent
-  ],
-  providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  entryComponents: [BusinessInterestDeleteDialogComponent]
 })
-export class JobMatBusinessInterestModule {
-  constructor(private languageService: JhiLanguageService, private languageHelper: JhiLanguageHelper) {
-    this.languageHelper.language.subscribe((languageKey: string) => {
-      if (languageKey) {
-        this.languageService.changeLanguage(languageKey);
-      }
-    });
-  }
-}
+export class JobMatBusinessInterestModule {}

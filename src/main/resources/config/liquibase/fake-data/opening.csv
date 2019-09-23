@@ -1,11 +1,11 @@
 id;status;title;j_d;j_d_content_type;positions_no;mentions;public_for_non_collaborators;date;city_id;company_id
-1;INACTIVE;white sensor local;../fake-data/blob/hipster.png;image/png;25;deposit Chips Applications;true;2019-08-08T04:07:45;1;1
-2;INACTIVE;architectures;../fake-data/blob/hipster.png;image/png;966;Strategist SDD;false;2019-08-08T03:30:07;2;2
-3;INACTIVE;Pants Maryland;../fake-data/blob/hipster.png;image/png;936;UIC-Franc Arkansas Intelligent;true;2019-08-07T18:43:53;3;3
-4;ACTIVE;program;../fake-data/blob/hipster.png;image/png;697;Sudanese Pound;false;2019-08-07T21:34:16;4;4
-5;INACTIVE;open-source HDD;../fake-data/blob/hipster.png;image/png;913;Avon;true;2019-08-07T19:46:09;5;5
-6;ACTIVE;incubate;../fake-data/blob/hipster.png;image/png;94;North Dakota Garden;false;2019-08-08T07:07:03;6;6
-7;ACTIVE;Computers Small Fresh Gloves back-end;../fake-data/blob/hipster.png;image/png;127;South Georgia and the South Sandwich Islands;true;2019-08-08T04:19:18;7;7
-8;ACTIVE;Refined Intelligent Granite Shirt;../fake-data/blob/hipster.png;image/png;541;deposit panel Strategist;true;2019-08-07T17:41:19;8;8
-9;ACTIVE;mindshare Gorgeous;../fake-data/blob/hipster.png;image/png;26;Brand;true;2019-08-08T00:33:33;9;9
-10;ACTIVE;Benin;../fake-data/blob/hipster.png;image/png;714;invoice;false;2019-08-07T19:31:13;10;10
+1;INACTIVE;white sensor local;../fake-data/blob/hipster.png;image/png;25;deposit Chips Applications;true;2019-09-23T07:54:30;1;1
+2;INACTIVE;architectures;../fake-data/blob/hipster.png;image/png;966;Strategist SDD;false;2019-09-23T07:16:52;2;2
+3;ACTIVE;Pants Maryland;../fake-data/blob/hipster.png;image/png;936;UIC-Franc Arkansas Intelligent;true;2019-09-22T22:30:37;3;3
+4;INACTIVE;program;../fake-data/blob/hipster.png;image/png;697;Sudanese Pound;false;2019-09-23T01:21:00;4;4
+5;INACTIVE;open-source HDD;../fake-data/blob/hipster.png;image/png;913;Avon;true;2019-09-22T23:32:54;5;5
+6;ACTIVE;incubate;../fake-data/blob/hipster.png;image/png;94;North Dakota Garden;false;2019-09-23T10:53:48;6;6
+7;INACTIVE;Computers Small Fresh Gloves back-end;../fake-data/blob/hipster.png;image/png;127;South Georgia and the South Sandwich Islands;true;2019-09-23T08:06:02;7;7
+8;INACTIVE;Refined Intelligent Granite Shirt;../fake-data/blob/hipster.png;image/png;541;deposit panel Strategist;true;2019-09-22T21:28:03;8;8
+9;INACTIVE;mindshare Gorgeous;../fake-data/blob/hipster.png;image/png;26;Brand;true;2019-09-23T04:20:18;9;9
+10;ACTIVE;Benin;../fake-data/blob/hipster.png;image/png;714;invoice;false;2019-09-22T23:17:58;10;10

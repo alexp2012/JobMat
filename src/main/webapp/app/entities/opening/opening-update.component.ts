@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -10,11 +12,11 @@ import { JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 import { IOpening, Opening } from 'app/shared/model/opening.model';
 import { OpeningService } from './opening.service';
 import { ICity } from 'app/shared/model/city.model';
-import { CityService } from 'app/entities/city';
+import { CityService } from 'app/entities/city/city.service';
 import { ITag } from 'app/shared/model/tag.model';
-import { TagService } from 'app/entities/tag';
+import { TagService } from 'app/entities/tag/tag.service';
 import { ICompany } from 'app/shared/model/company.model';
-import { CompanyService } from 'app/entities/company';
+import { CompanyService } from 'app/entities/company/company.service';
 
 @Component({
   selector: 'jhi-opening-update',
@@ -111,8 +113,8 @@ export class OpeningUpdateComponent implements OnInit {
   setFileData(event, field: string, isImage) {
     return new Promise((resolve, reject) => {
       if (event && event.target && event.target.files && event.target.files[0]) {
-        const file = event.target.files[0];
-        if (isImage && !/^image\//.test(file.type)) {
+        const file: File = event.target.files[0];
+        if (isImage && !file.type.startsWith('image/')) {
           reject(`File was expected to be an image but was found to be ${file.type}`);
         } else {
           const filedContentType: string = field + 'ContentType';
@@ -127,7 +129,8 @@ export class OpeningUpdateComponent implements OnInit {
         reject(`Base64 data was not set as file could not be extracted from passed parameter: ${event}`);
       }
     }).then(
-      () => console.log('blob added'), // sucess
+      // eslint-disable-next-line no-console
+      () => console.log('blob added'), // success
       this.onError
     );
   }
@@ -192,7 +195,7 @@ export class OpeningUpdateComponent implements OnInit {
     return item.id;
   }
 
-  getSelected(selectedVals: Array<any>, option: any) {
+  getSelected(selectedVals: any[], option: any) {
     if (selectedVals) {
       for (let i = 0; i < selectedVals.length; i++) {
         if (option.id === selectedVals[i].id) {

@@ -1,5 +1,4 @@
 package ro.jobmat.repository;
-
 import ro.jobmat.domain.Company;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

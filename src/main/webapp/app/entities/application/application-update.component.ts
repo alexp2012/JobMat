@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -10,9 +12,9 @@ import { JhiAlertService } from 'ng-jhipster';
 import { IApplication, Application } from 'app/shared/model/application.model';
 import { ApplicationService } from './application.service';
 import { IRecruitmentStep } from 'app/shared/model/recruitment-step.model';
-import { RecruitmentStepService } from 'app/entities/recruitment-step';
+import { RecruitmentStepService } from 'app/entities/recruitment-step/recruitment-step.service';
 import { ICandidate } from 'app/shared/model/candidate.model';
-import { CandidateService } from 'app/entities/candidate';
+import { CandidateService } from 'app/entities/candidate/candidate.service';
 
 @Component({
   selector: 'jhi-application-update',

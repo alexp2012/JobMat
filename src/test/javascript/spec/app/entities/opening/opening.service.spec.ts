@@ -1,13 +1,11 @@
-/* tslint:disable max-line-length */
 import { TestBed, getTestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { of } from 'rxjs';
 import { take, map } from 'rxjs/operators';
 import * as moment from 'moment';
 import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 import { OpeningService } from 'app/entities/opening/opening.service';
-import { IOpening, Opening, OpeningStatus } from 'app/shared/model/opening.model';
+import { IOpening, Opening } from 'app/shared/model/opening.model';
+import { OpeningStatus } from 'app/shared/model/enumerations/opening-status.model';
 
 describe('Service Tests', () => {
   describe('Opening Service', () => {
@@ -31,7 +29,7 @@ describe('Service Tests', () => {
     });
 
     describe('Service methods', () => {
-      it('should find an element', async () => {
+      it('should find an element', () => {
         const returnedFromService = Object.assign(
           {
             date: currentDate.format(DATE_TIME_FORMAT)
@@ -48,7 +46,7 @@ describe('Service Tests', () => {
         expect(expectedResult).toMatchObject({ body: elemDefault });
       });
 
-      it('should create a Opening', async () => {
+      it('should create a Opening', () => {
         const returnedFromService = Object.assign(
           {
             id: 0,
@@ -71,7 +69,7 @@ describe('Service Tests', () => {
         expect(expectedResult).toMatchObject({ body: expected });
       });
 
-      it('should update a Opening', async () => {
+      it('should update a Opening', () => {
         const returnedFromService = Object.assign(
           {
             status: 'BBBBBB',
@@ -100,7 +98,7 @@ describe('Service Tests', () => {
         expect(expectedResult).toMatchObject({ body: expected });
       });
 
-      it('should return a list of Opening', async () => {
+      it('should return a list of Opening', () => {
         const returnedFromService = Object.assign(
           {
             status: 'BBBBBB',
@@ -132,8 +130,8 @@ describe('Service Tests', () => {
         expect(expectedResult).toContainEqual(expected);
       });
 
-      it('should delete a Opening', async () => {
-        const rxPromise = service.delete(123).subscribe(resp => (expectedResult = resp.ok));
+      it('should delete a Opening', () => {
+        service.delete(123).subscribe(resp => (expectedResult = resp.ok));
 
         const req = httpMock.expectOne({ method: 'DELETE' });
         req.flush({ status: 200 });

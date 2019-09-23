@@ -4,11 +4,7 @@ import { IOpening } from 'app/shared/model/opening.model';
 import { ICandidate } from 'app/shared/model/candidate.model';
 import { ICity } from 'app/shared/model/city.model';
 import { IBusinessInterest } from 'app/shared/model/business-interest.model';
-
-export const enum CompanyType {
-  SUPPLIER = 'SUPPLIER',
-  CUSTOMER = 'CUSTOMER'
-}
+import { CompanyType } from 'app/shared/model/enumerations/company-type.model';
 
 export interface ICompany {
   id?: number;

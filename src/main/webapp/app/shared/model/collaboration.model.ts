@@ -1,15 +1,6 @@
 import { ICompany } from 'app/shared/model/company.model';
-
-export const enum CollaborationStatus {
-  ACTIVE = 'ACTIVE',
-  INVITATION = 'INVITATION',
-  REJECTED = 'REJECTED'
-}
-
-export const enum CompanyType {
-  SUPPLIER = 'SUPPLIER',
-  CUSTOMER = 'CUSTOMER'
-}
+import { CollaborationStatus } from 'app/shared/model/enumerations/collaboration-status.model';
+import { CompanyType } from 'app/shared/model/enumerations/company-type.model';
 
 export interface ICollaboration {
   id?: number;
